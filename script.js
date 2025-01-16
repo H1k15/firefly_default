@@ -66,7 +66,6 @@ document.getElementById('searchInput').addEventListener('input', function() {
     });
 });
 
-
 // Chức năng tìm kiếm giọng nói
 function searchVoice() {
     var recognition = new(window.SpeechRecognition || window.webkitSpeechRecognition)();
@@ -93,3 +92,15 @@ function searchImage() {
         window.open("https://images.google.com/imghp", "_blank");
     }
 }
+
+document.querySelectorAll('.social-icon').forEach(icon => {
+    icon.addEventListener('click', function(event) {
+        event.preventDefault(); // Ngăn việc chuyển trang ngay lập tức
+        const newTab = window.open(this.href, '_blank'); // Mở link trong tab mới
+        if (newTab) {
+            window.close(); // Đóng tab hiện tại
+        } else {
+            alert('Hãy cho phép cửa sổ bật lên để thực hiện hành động này.');
+        }
+    });
+});
